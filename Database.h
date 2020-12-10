@@ -3,6 +3,7 @@
 
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include <QVariantMap>
 
 class Database
 {
@@ -12,6 +13,8 @@ public:
 
     void closeConnection();
     static Database* getInstance();
+    QSqlQuery execute(QString sql, QVariantMap params = {});
+
 private:
     Database();
     ~Database();
