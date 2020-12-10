@@ -5,6 +5,8 @@
 #include <QStringList>
 #include <QVariantMap>
 
+#include <Database.h>
+
 class SqlBuilder
 {
 protected:
@@ -16,6 +18,8 @@ public:
     SqlBuilder(QString table);
     SqlBuilder* select(QStringList columns = {"*"});
     SqlBuilder* where(QStringList condition, QVariantMap params = {});
+
+    QVariantList rows();
 
     void setSql(QString sql);
     QString getSql();
