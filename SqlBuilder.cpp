@@ -28,6 +28,21 @@ SqlBuilder* SqlBuilder::where(QStringList condition, QVariantMap params) {
     return this;
 }
 
+QVariantList SqlBuilder::rows() {
+    Database* db = Database::getInstance();
+    QSqlQuery query = db->execute(this->sql, this->params);
+
+    int i;
+    QVariantList rows, row;
+    QVariant column;
+
+    for (i = 0; query.next(); i++) {
+      rows.append(query.value(0).toString());
+    }
+
+    return rows;
+}
+
 /**
  * @brief SqlBuilder::setSql
  * @param sql
