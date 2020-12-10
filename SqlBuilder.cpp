@@ -16,8 +16,15 @@ SqlBuilder* SqlBuilder::select(QStringList columns) {
     return this;
 }
 
+/**
+ * @brief SqlBuilder::where
+ * @param condition
+ * @param params
+ * @return
+ */
 SqlBuilder* SqlBuilder::where(QStringList condition, QVariantMap params) {
     this->sql += " where " + condition.join(" ");
+    this->params = params;
     return this;
 }
 

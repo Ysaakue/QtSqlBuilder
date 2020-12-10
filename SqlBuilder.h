@@ -10,6 +10,7 @@ class SqlBuilder
 protected:
     QString sql;
     QString table;
+    QVariantMap params;
     QStringList columns = {"*"};
 public:
     SqlBuilder(QString table);
