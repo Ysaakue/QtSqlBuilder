@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QStringList>
+#include <QVariantMap>
 
 class SqlBuilder
 {
@@ -13,6 +14,7 @@ protected:
 public:
     SqlBuilder(QString table);
     SqlBuilder* select(QStringList columns = {"*"});
+    SqlBuilder* where(QStringList condition, QVariantMap params = {});
 
     void setSql(QString sql);
     QString getSql();
