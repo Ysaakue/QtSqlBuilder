@@ -2,7 +2,6 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QDebug>
-#include <iostream>
 
 Database* Database::instance = nullptr;
 
@@ -15,6 +14,17 @@ Database::Database()
 Database::~Database()
 {
   this->closeConnection();
+}
+
+QSqlQuery Database::execute(QString sql, QVariantMap params) {
+  QSqlQuery query = this->query;
+  query.prepare(sql);
+  for (auto param : params.keys()) {
+   query.bindValue(param, params.value(param));
+  }
+  query.exec();
+  query.first();
+  return query;
 }
 
 void Database::closeConnection()
