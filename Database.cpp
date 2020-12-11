@@ -23,7 +23,6 @@ QSqlQuery Database::execute(QString sql, QVariantMap params) {
    query.bindValue(":" + param, params.value(param));
   }
   query.exec();
-  query.first();
   return query;
 }
 
