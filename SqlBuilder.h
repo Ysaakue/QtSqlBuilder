@@ -18,12 +18,14 @@ public:
     SqlBuilder(QString table);
     SqlBuilder* select(QStringList columns = {"*"});
     SqlBuilder* where(QStringList condition, QVariantMap params = {});
-    bool insert(QVariantMap values);
+    SqlBuilder* insert(QVariantMap values);
+    void execute();
 
     QVariantList rows();
 
     void setSql(QString sql);
     QString getSql();
+    void cleanSql();
 };
 
 SqlBuilder* db(QString table);
