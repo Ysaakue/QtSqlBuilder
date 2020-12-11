@@ -28,6 +28,47 @@ SqlBuilder* SqlBuilder::where(QStringList condition, QVariantMap params) {
     return this;
 }
 
+/**
+ * @brief SqlBuilder::insert
+ * @param values
+ * @return
+ */
+SqlBuilder* SqlBuilder::insert(QVariantMap values) {
+    this->sql += "insert into " + this->table;
+
+    QStringList columnsToInsert, valuesToInsert;
+
+    for (auto value : values.keys()) {
+        columnsToInsert.append(value);
+
+         valuesToInsert.append(values.value(value).toString());
+    }
+
+    this->sql += " (" + columnsToInsert.join(", ") + ")" + " values (" + valuesToInsert.join(", ") + ")";
+
+    return this;
+}
+
+/**
+ * @brief SqlBuilder::cleanSql
+ */
+void SqlBuilder::cleanSql() {
+   this->sql = "";
+}
+
+/**
+ * @brief SqlBuilder::execute
+ */
+void SqlBuilder::execute() {
+    Database* db = Database::getInstance();
+    QSqlQuery query = db->execute(this->sql, this->params);
+    this->sql = "";
+}
+
+/**
+ * @brief SqlBuilder::rows
+ * @return
+ */
 QVariantList SqlBuilder::rows() {
     Database* db = Database::getInstance();
     QSqlQuery query = db->execute(this->sql, this->params);

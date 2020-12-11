@@ -9,16 +9,27 @@ int main(int argc, char *argv[])
     // return a.exec();
 
     QVariantMap params;
-    params["id"] = 1;
+    params["id"] = 4;
 
-    qDebug() <<
+    /**
+     * Select example.
+     */
+    // db("users")
+    //   ->select({"id", "name", "registration"})
+    //   ->where({"id", "=", ":id"}, params)
+    //   ->rows();
 
-    db("users")
-      ->select({"id", "nome"})
-      ->where({"id", "=", ":id"}, params)
-      ->rows()
+    /**
+     * Insert example.
+     */
 
-             << "\n";
+    QVariantMap values;
+
+    // values["name"] = "'Chaves'";
+    // values["registration"] = "'123456'";
+
+    // db("users")
+    //   ->insert(values)->execute();
 
     return 0;
 }
