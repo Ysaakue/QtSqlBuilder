@@ -18,6 +18,7 @@ public:
     SqlBuilder(QString table);
     SqlBuilder* select(QStringList columns = {"*"});
     SqlBuilder* where(QStringList condition, QVariantMap params = {});
+    bool insert(QVariantMap values);
 
     QVariantList rows();
 
