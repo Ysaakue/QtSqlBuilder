@@ -20,6 +20,7 @@ public:
     SqlBuilder* where(QStringList condition, QVariantMap params = {});
     SqlBuilder* insert(QVariantMap values);
     SqlBuilder* destroy();
+    SqlBuilder* update(QVariantMap values);
     void execute();
 
     QVariantList rows();

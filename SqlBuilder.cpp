@@ -59,6 +59,26 @@ SqlBuilder* SqlBuilder::destroy() {
 }
 
 /**
+ * @brief SqlBuilder::update
+ * @param values
+ * @return
+ */
+SqlBuilder* SqlBuilder::update(QVariantMap values) {
+
+    this->sql += "update " + this->table + " set ";
+
+    QStringList columnsToUpdate, valuesToUpdate;
+
+    for (auto value : values.keys()) {
+       this->sql += value + " = " + values.value(value).toString() + ", ";
+    }
+
+    this->sql = this->sql.remove(this->sql.size() - 2, 2);
+
+    return this;
+}
+
+/**
  * @brief SqlBuilder::cleanSql
  */
 void SqlBuilder::cleanSql() {
