@@ -50,6 +50,15 @@ SqlBuilder* SqlBuilder::insert(QVariantMap values) {
 }
 
 /**
+ * @brief SqlBuilder::destroy
+ * @return
+ */
+SqlBuilder* SqlBuilder::destroy() {
+    this->sql += "delete from " + this->table;
+    return this;
+}
+
+/**
  * @brief SqlBuilder::cleanSql
  */
 void SqlBuilder::cleanSql() {
