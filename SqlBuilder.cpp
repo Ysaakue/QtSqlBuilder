@@ -32,12 +32,24 @@ QVariantList SqlBuilder::rows() {
     Database* db = Database::getInstance();
     QSqlQuery query = db->execute(this->sql, this->params);
 
-    int i;
+    int i, j, columnsCount = this->columns.size();
     QVariantList rows, row;
     QVariant column;
 
+    /**
+     * Iterate all rows on result
+     */
     for (i = 0; query.next(); i++) {
-      rows.append(query.value(0).toString());
+      /**
+       * Catch all columns and append each on a the actual row.
+       */
+      for (j = 0; j < columnsCount; j++)
+          row.append(query.value(j));
+      /**
+       * Append the row on rows list.
+       */
+      rows.append(row);
+      row = {};
     }
 
     return rows;
