@@ -31,5 +31,13 @@ int main(int argc, char *argv[])
     // db("users")
     //   ->insert(values)->execute();
 
+
+    /**
+     * Delete example.
+     */
+    // db("users")
+    // ->destroy()->where({"id","=", "14"})
+    // ->execute();
+
     return 0;
 }
