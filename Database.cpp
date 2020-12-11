@@ -20,7 +20,7 @@ QSqlQuery Database::execute(QString sql, QVariantMap params) {
   QSqlQuery query = this->query;
   query.prepare(sql);
   for (auto param : params.keys()) {
-   query.bindValue(param, params.value(param));
+   query.bindValue(":" + param, params.value(param));
   }
   query.exec();
   query.first();
