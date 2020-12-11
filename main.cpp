@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
      * Insert example.
      */
 
-    QVariantMap values;
+    // QVariantMap values;
 
     // values["name"] = "'Chaves'";
     // values["registration"] = "'123456'";
@@ -31,13 +31,24 @@ int main(int argc, char *argv[])
     // db("users")
     //   ->insert(values)->execute();
 
-
     /**
      * Delete example.
      */
     // db("users")
     // ->destroy()->where({"id","=", "14"})
     // ->execute();
+
+    /**
+     * Update example.
+     */
+
+   // QVariantMap values;
+
+   // values["name"] = "'Ñoño'";
+   // values["registration"] = "'654321'";
+
+   // db("users")
+   // ->update(values)->where({"id", "=", "4"})->execute();
 
     return 0;
 }
