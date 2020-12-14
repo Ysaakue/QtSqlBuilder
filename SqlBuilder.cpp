@@ -141,6 +141,6 @@ QString SqlBuilder::getSql() { return this->sql; }
  * @param table
  * @return
  */
-SqlBuilder* db(QString table) {
+SqlBuilder* queryBuilder(QString table) {
   return new SqlBuilder(table);
 }

@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     /**
      * Select example.
      */
-    // db("users")
+    // queryBuilder("users")
     //   ->select({"id", "name", "registration"})
     //   ->where({"id", "=", ":id"}, params)
     //   ->rows();
@@ -28,13 +28,13 @@ int main(int argc, char *argv[])
     // values["name"] = "'Chaves'";
     // values["registration"] = "'123456'";
 
-    // db("users")
+    // queryBuilder("users")
     //   ->insert(values)->execute();
 
     /**
      * Delete example.
      */
-    // db("users")
+    // queryBuilder("users")
     // ->destroy()->where({"id","=", "14"})
     // ->execute();
 
@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
    // values["name"] = "'Ñoño'";
    // values["registration"] = "'654321'";
 
-   // db("users")
+   // queryBuilder("users")
    // ->update(values)->where({"id", "=", "4"})->execute();
 
     return 0;

@@ -30,6 +30,6 @@ public:
     void cleanSql();
 };
 
-SqlBuilder* db(QString table);
+SqlBuilder* queryBuilder(QString table);
 
 #endif // SQLBUILDER_H
